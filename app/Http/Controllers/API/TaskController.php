@@ -13,9 +13,17 @@ use App\Notifications\TaskStatusChanged;
 class TaskController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @OA\Get(
+     *     path="/api/tasks",
+     *     summary="Tüm görevleri listeler",
+     *     tags={"Tasks"},
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Başarılı",
+     *         @OA\JsonContent(type="array", @OA\Items(ref="#/components/schemas/Task"))
+     *     )
+     * )
      */
     public function index()
     {
