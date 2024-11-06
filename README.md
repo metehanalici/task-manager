@@ -1,66 +1,77 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Görev Yönetimi Uygulaması
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Laravel ve React kullanılarak geliştirilmiş, kullanıcı dostu bir Görev Yönetimi modülü. Bu uygulama, görev oluşturma, düzenleme, silme, zamanlanmış görevler, gerçek zamanlı bildirimler ve Kanban panosu gibi özellikler sunar.
 
-## About Laravel
+Özellikler:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+*Görev Yönetimi*
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Görev Oluşturma, Düzenleme ve Silme: Kullanıcılar yeni görevler oluşturabilir, mevcut görevleri düzenleyebilir ve gereksiz görevleri silebilir.
+Zamanlanmış Görevler: Görevler belirli bir zamanda otomatik olarak başlatılabilir.
+Kanban Panosu: Görevlerin durumlarını güncelleyebilir ve görsel olarak yönetebilirsiniz.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Gerçek Zamanlı Bildirimler
+Anlık Bildirimler: Görev durumu değişikliklerinde ilgili kullanıcılara anlık bildirimler gönderilir.
+Performans Optimizasyonları
 
-## Learning Laravel
+Backend:
+Veritabanı Sorgu Optimizasyonu: Veritabanı sorguları optimize edilmiştir.
+Önbellekleme: Veriler önbelleğe alınarak erişim süresi azaltılmıştır.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Frontend:
+Lazy Loading: React bileşenleri ihtiyaç duyulduğunda yüklenir, başlangıç yükleme süresi azaltılır.
+Memoization: React.memo ve useMemo kullanılarak gereksiz yeniden render işlemleri önlenir.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+API Entegrasyonu
+RESTful API Endpoint'leri: Uygulama, RESTful API üzerinden veri alışverişi yapar.
+Swagger ile API Dokümantasyonu: API'lerin detaylı dokümantasyonu Swagger kullanılarak sağlanır.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+Kurulum ve Yapılandırma:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Pusher Ayarlarını Yapılandırma
+Pusher hesabınızdan App ID, App Key, App Secret ve Cluster bilgilerini alın.
+Bu bilgileri .env dosyanıza ekleyin
 
-### Premium Partners
+*Queue Worker'ı Başlatmayı unutmayın.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Bildirim Türleri:
 
-## Contributing
+TaskStatusChanged Bildirimi
+-Görevlerin durumları değiştiğinde ilgili kullanıcılara gönderilir.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+TaskStarted Bildirimi
+-Zamanlanmış görevler başlatıldığında kullanıcılara gönderilir.
 
-## Code of Conduct
+Performans Optimizasyonları:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Backend Optimizasyonları
+Caching: Görev listesi Cache::remember ile önbelleğe alınır.
+Eager Loading: Task::with('user') kullanılarak N+1 sorgu problemi önlenir.
 
-## Security Vulnerabilities
+Frontend Optimizasyonları
+Lazy Loading: React bileşenleri lazy load edilerek başlangıç yükleme süresi azaltılır.
+Memoization: React.memo ve useMemo kullanılarak gereksiz yeniden render işlemleri önlenir.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Ek Bilgiler
+Laravel Broadcasting ve Pusher
+Laravel'ın broadcasting özelliği ile Pusher kullanarak gerçek zamanlı bildirimler sağlanır. Pusher hesabınızdan alınan App ID, App Key, App Secret ve Cluster bilgilerini .env dosyanıza eklemeniz gerekmektedir.
 
-## License
+API Authentication
+API'ler auth:sanctum middleware ile korunmaktadır. Kullanıcıların API'lere erişebilmesi için token tabanlı kimlik doğrulaması gereklidir. Kullanıcı oturumu açtıktan sonra, auth_token yerel depolamada (localStorage) saklanarak API isteklerinde kullanılır.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Frontend ve Backend Entegrasyonu
+Frontend ve backend aynı proje içerisinde çalışacak şekilde yapılandırılmıştır. React uygulaması resources/frontend dizininde bulunurken, Laravel backend kök dizininde yer almaktadır. Proxy ayarı sayesinde, React uygulaması API isteklerini Laravel backend üzerinden yapabilir.
+
+Environment Variables
+Backend (.env): Laravel ile ilgili tüm çevresel değişkenler burada tanımlanır.
+Frontend (resources/frontend/.env): React uygulaması için gerekli Pusher bilgileri burada tanımlanır.
+Deployment
+Uygulamayı dağıtırken, hem Laravel hem de React uygulamalarını uygun sunuculara yerleştirmeniz gerekmektedir. Üretim ortamında, React build dosyalarını Laravel'ın public dizinine veya ayrı bir CDN'ye dağıtabilirsiniz.
+
+Güvenlik
+Çevresel Değişkenler: .env dosyasını asla kaynak kontrolüne eklemeyin.
+API Güvenliği: API endpoint'lerini korumak için auth:sanctum middleware kullanılmıştır.
+Queue Güvenliği: Queue job'larının güvenli bir şekilde işlendiğinden emin olun.
+
+MA.
